@@ -41,7 +41,6 @@ mod tests {
     use super::*;
 
     #[test]
-    // #[should_panic]
     fn should_create_only_one_instance() {
         let len = add_elements_to_singleton(5);
         assert_eq!(len, 5);
@@ -52,10 +51,10 @@ mod tests {
 
     fn add_elements_to_singleton(number: usize) -> usize {
         // when the guard goes out of scope (function), the mutex will be unlocked.
-        let mut one = Singleton::get_instance().instance.lock().unwrap();
+        let mut guard = Singleton::get_instance().instance.lock().unwrap();
         for i in 0..number {
-            one.push(i);
+            guard.push(i);
         }
-        return one.len().clone();
+        return guard.len().clone();
     }
 }
