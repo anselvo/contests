@@ -5,7 +5,7 @@ pub mod algorithms {
 }
 
 pub mod patterns {
-
+    pub mod singleton;
 }
 
 pub mod structures {
