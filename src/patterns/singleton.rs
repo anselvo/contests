@@ -11,7 +11,7 @@ use crate::structures::vector::Vec;
 ///
 /// Official implementation https://docs.rust-embedded.org/book/peripherals/singletons.html
 pub struct Singleton {
-    instance: Mutex<Vec>,
+    pub instance: Mutex<Vec>,
 }
 
 impl Singleton {

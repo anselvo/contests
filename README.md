@@ -15,11 +15,11 @@ You can find some most common algorithms implementations in Rust in `/src/algori
 - [x] while implementation
 
 ### Sort
-- [x] Selection (O(n^2))
-- [x] Insertion (O(n^2))
-- [x] Bubble (O(n^2))
-- [x] Merge (O(nlogn))
-- [x] Counting (O(u8::MAX))
+- [x] Selection _O(n^2)_
+- [x] Insertion _O(n^2)_
+- [x] Bubble _O(n^2)_
+- [x] Merge _O(nlogn)_
+- [x] Counting _O(u8::MAX)_
 
 ## Patterns examples in Rust
 
