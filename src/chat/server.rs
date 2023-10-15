@@ -1,5 +1,4 @@
 use std::net::SocketAddr;
-use tokio::io::BufReader;
 use tokio::net::TcpListener;
 use tokio::sync::broadcast;
 use crate::chat::client::Client;
@@ -22,27 +21,18 @@ impl Server {
         loop {
             let (socket, socket_addr) = match listener.accept().await {
                 Ok((s, a)) => {
-                    println!("New client: {a:?}");
+                    println!("{a} - new client connected");
                     (s, a)
                 }
                 Err(e) => {
-                    println!("New client: {e:?}");
+                    println!("{e:?}");
                     break;
                 }
             };
             let (reader, writer) = socket.into_split();
 
-            let subscriber = Subscriber {
-                reader: BufReader::new(reader),
-                tx: tx.clone(),
-                buf: String::new(),
-            };
-
-            let producer = Producer {
-                writer,
-                rx: tx.subscribe(),
-                init_identifier_msg: Producer::get_identifier_msg(socket_addr, ">"),
-            };
+            let subscriber = Subscriber::new(reader, tx.clone());
+            let producer = Producer::new(writer, tx.subscribe(), socket_addr);
 
             client.run(Server { subscriber, producer, socket_addr });
         }
