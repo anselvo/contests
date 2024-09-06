@@ -13,3 +13,4 @@ pub mod structures {
     pub mod queue;
 }
 
+pub mod leetcode;
