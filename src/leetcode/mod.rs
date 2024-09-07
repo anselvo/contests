@@ -4,6 +4,7 @@ pub mod easy {
     pub mod a_14;
     pub mod a_20;
     pub mod a_21;
+    pub mod a_26;
     pub mod a_3110;
 }
 
