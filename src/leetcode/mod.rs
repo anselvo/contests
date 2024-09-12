@@ -7,7 +7,8 @@ pub mod easy {
     pub mod a_26;
     pub mod a_27;
     pub mod a_28;
-    pub mod a_29;
+    pub mod a_35;
+    pub mod a_58;
     pub mod a_3110;
 }
 
